@@ -55,6 +55,7 @@ body{
 }
 .header-flex{
 	display: flex;
+	/* flex-wrap: wrap; */
 	flex-direction: row;
 	height: 150px;
 	border: 1px solid black;
@@ -69,7 +70,8 @@ body{
 .logo-flex {
 	display: flex;
 	flex-direction: column;
-	
+	width: 160px;
+	height: 25px;
 }
 	
 
@@ -99,10 +101,7 @@ body{
 .page-nav {
 	padding-top: 20px;
 }
-	/* display: flex;
-	flex-flow: row;
-	flex-grow: 1;
-} */
+	
 .page-el {
 	display: inline-block;
 	text-align: center;
@@ -124,34 +123,45 @@ body{
 	font-size: 1.1rem;
 	border-radius:  20px;
 	box-shadow: 0px 10px 10px #8796c7;
-	
 }
 
 .main-info {
 	display: flex;
 	flex-flow: column;
 	text-align: center;
+	align-items: center;
 	border: 1px solid red;
 	justify-content: center;
 }
 .main-info h2 {
-	font-size: 3.75rem;
+	margin-top: 60px;
+	font-size: 3.7rem;
 	font-weight: bold;
 }
 .main-info h3 {
-	font-size: 3rem;
-	
+	font-size: 2.1rem;
+	letter-spacing: 0.6;
+	justify-items: center;
+	margin-top: 20px;
 }
 .buttons {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	display: flex;
+	align-items: center;
+	margin-top: 80px;
+	
+	/* grid-template-columns: 4fr 1fr 4fr; */
+	justify-content: space-around;
+	width: 400px;
+	border: 1px solid black; 
 }
 .istore, .play-market {
 	height: 50px;
 	width: 50px;
+	align-content: center;
 	background-color: #714a82;
 	border: 0px;
 	border-radius: 50%;
+	
 }
 .create-account {
 	display: inline-block;
@@ -173,7 +183,30 @@ body{
 	flex-direction: row;
 	justify-content: center;
 	border: 1px solid purple;
-	margin-left:30px;
+	margin-left:10px;
+	margin-top: 300px;
+
+}
+.features-container {
+	display: flex;
+	flex-flow: column;
+	align-items: top;
+	margin-top: 0
+}
+.feat-wrap {
+	display: flex;
+	flex-flow: row;
+	flex-grow: 1;
+	justify-content: left;
+	align-items: top;
+	/* display: inline-block;
+	text-align: left;
+	width: 100%; */
+
+}
+.feat-wrap img {
+	height: 75%;
+	border: 1px solid green;
 }
 .features h2 {
 	font-size: 1.875rem;
@@ -186,12 +219,171 @@ body{
 	font-size: 1.1rem;
 	display: block;
 }
-.features div {
-	margin-top: 30px;
+.features p {
+	display: block;
+	font-size: 0.875rem;
+	margin-top: 20px;
+	border: 1px solid green;
 	width: 370px; 
+}
+.features div {
+
+	
 	border: 1px solid brown;
 	margin-left: 30px;
 }
+.physical-security {
+	/* position: relative; */
+	display: block;
+	width: 630px;
+	text-align: right;
+	border: 1px solid blue;
+}
+.physical-security h2 {
+	font-size: 3.75rem;
+	
+	/* position: relative; */
+}
+.physical-security p {
+	display: block;
+	width: 620px;
+	font-size: 1.5rem;
+	
+}
+.physical-security:after {
+	/* content: "";
+	width:1000px;
+	border: 1px solid black;
+	top: 50px; */
+	display: block;
+    width:1000px;
+    content: '';
+    position: relative;
+    border-bottom: 1px solid #000;
+    top:50px;
+	left: 110px; 
+	overflow: hidden;
+}
+
+.requirements h3{
+	font-size: 2rem;
+}
+.requirements p{
+	max-width: 435px;
+	text-align: right;
+}
+.devices {
+	position: relative;
+	left: 550px;
+
+}
+.suggest h3 {
+	font-size: 2.25rem;
+}
+.suggest p {
+	font-size: 1.8rem;
+}
+.support-buttons {
+	/* display: flex;
+	flex-flow: row;
+	justify-items: space-between; */
+	margin-top: 20px;
+	text-align: center;
+}
+.upgrade-button {
+	display: inline-block;
+	margin-right: 20px;
+	width: 250px;
+	height: 60px;
+	background: linear-gradient(to right, #646c92, #5f2f6a);
+	color: white;
+	font-size: 1.125rem;
+	font-weight: bold;
+	box-shadow: 0px 10px 10px #7382ad;
+	-webkit-box-shadow: 0px 10px 10px #7382ad;
+	-moz-box-shadow: 0px 10px 10px #7382ad;
+	border-radius: 30px;
+	border: 0px;
+}
+.donate-button {
+	display: inline-block;
+	margin-left: 20px;
+	width: 170px;
+	height: 60px;
+	background: linear-gradient(to right, #37b9e1, #5e7bea);
+	color: white;
+	font-size: 1.125rem;
+	font-weight: bold;
+	box-shadow: 0px 10px 10px #61b7b6;
+	-webkit-box-shadow: 0px 10px 10px #61b7b6;
+	-moz-box-shadow: 0px 10px 10px #61b7b6;
+	border-radius: 30px;
+	border: 0px;
+}
+
+.learn-about {
+	height: 65px;
+	width: 335px;
+	background-color: white;
+	border-radius: 40px;
+	border: 1px solid #c1c1c1;
+	text-align: center;
+}
+.center {
+	text-align: center;
+}
+
 .dotted li:after {
 	content: disc;
 }
+
+.footer {
+	display: flex;
+	flex-flow:column;
+}
+.bottom {
+	display: flex;
+	flex-flow: row;
+	}
+
+.bottom div {
+	border: 1px solid red;
+	}
+.partners:before {
+	display: block;
+    width:1000px;
+    content: '';
+    position: relative;
+    border-bottom: 1px solid #b9b9b9;
+    /* top:50%; */
+    left: 500px; 
+}
+
+.contacts {
+	width: 220px;
+	font-size: 0.875rem;
+
+}
+.company, .legal, .NeutronMail:after {
+
+}
+.social-networks {
+	display: flex;
+	width: 370px;
+	justify-content: space-around;
+	border: 1px solid orange;
+	font-size: 0.75rem;
+}
+.dotted {
+
+}
+.copyright {
+	font-size: 0.75rem;
+	margin-top: 10px;
+}
+
+/* @media
+.header-flex{
+	display: flex;
+	flex-wrap: wrap;
+} */
