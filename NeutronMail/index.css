@@ -1,0 +1,197 @@
+/* CSS reset */
+html, body, div, span, applet, object, iframe, table, caption, tbody, tfoot, thead, tr, th, td, 
+del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, 
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, 
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
+	vertical-align: baseline;
+	font-family: inherit;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	outline: 0;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+	}
+body {
+	background: white;
+	line-height: 1;
+	color: black;
+	}
+ol, ul {
+	list-style: none;
+	}
+/* tables still need cellspacing="0" in the markup */
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+	}
+caption, th, td {
+	font-weight: normal;
+	text-align: left;
+	}
+/* remove possible quote marks (") from <q> & <blockquote> */
+blockquote:before, blockquote:after, q:before, q:after {
+	content: "";
+	}
+blockquote, q {
+	quotes: "" "";
+	}
+/* Main CSS*/
+/* Fonts */
+@font-face {
+font-family: Titillium; 
+	src: url(fonts\TitilliumWeb-SemiBold.ttf);
+}
+
+body{
+	font-family: Titillium, sans-serif;
+	width: 100%;
+	color: #7a7a79;
+}
+.header-flex{
+	display: flex;
+	flex-direction: row;
+	height: 150px;
+	border: 1px solid black;
+	margin-top: 100px;
+}
+.header-flex-item {
+	text-align: center;
+	padding-left: 20px;
+	border: 1px solid black;
+}
+
+.logo-flex {
+	display: flex;
+	flex-direction: column;
+	
+}
+	
+
+.logo-flex-item {
+	display: flex;
+	flex-direction: row;
+
+}
+
+.language-nav {
+	padding-top: 20px;
+	
+}
+.language-nav {
+	width: 20%;
+}
+.page-nav {
+	width: 50%;
+}
+.lang-nav-el {
+	display: inline-block;
+	width: 20%;
+	text-align: center;
+	font-size: 0.875rem;
+}
+
+.page-nav {
+	padding-top: 20px;
+}
+	/* display: flex;
+	flex-flow: row;
+	flex-grow: 1;
+} */
+.page-el {
+	display: inline-block;
+	text-align: center;
+	width: 15%;
+	border: 1px solid black;
+}
+
+.login-nav{
+	width: 30%;
+	text-align: left;
+}
+.sign-up {
+	background: linear-gradient(to bottom right, #582c7e, #7887bc);
+	border: 0px;
+	height: 43px;
+	width: 97px;
+	color: white;
+	font-weight: bold;
+	font-size: 1.1rem;
+	border-radius:  20px;
+	box-shadow: 0px 10px 10px #8796c7;
+	
+}
+
+.main-info {
+	display: flex;
+	flex-flow: column;
+	text-align: center;
+	border: 1px solid red;
+	justify-content: center;
+}
+.main-info h2 {
+	font-size: 3.75rem;
+	font-weight: bold;
+}
+.main-info h3 {
+	font-size: 3rem;
+	
+}
+.buttons {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+.istore, .play-market {
+	height: 50px;
+	width: 50px;
+	background-color: #714a82;
+	border: 0px;
+	border-radius: 50%;
+}
+.create-account {
+	display: inline-block;
+	
+	width: 250px;
+	height: 60px;
+	font-size: 1.125rem;
+	color: white;
+	font-weight: bold;
+	background: linear-gradient(to left, #5f2e69 , #636b92);
+	border: 0px;
+	border-radius: 40px;
+	box-shadow: 0px 10px 10px #90a9e1;
+	-webkit-box-shadow: 0px 10px 10px #90a9e1;
+	-moz-box-shadow: 0px 10px 10px #90a9e1;
+}
+.features {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	border: 1px solid purple;
+	margin-left:30px;
+}
+.features h2 {
+	font-size: 1.875rem;
+	display: inline-block;
+}
+/* .company ul{
+	direction: rtl;
+} */
+.features h3 {
+	font-size: 1.1rem;
+	display: block;
+}
+.features div {
+	margin-top: 30px;
+	width: 370px; 
+	border: 1px solid brown;
+	margin-left: 30px;
+}
+.dotted li:after {
+	content: disc;
+}
