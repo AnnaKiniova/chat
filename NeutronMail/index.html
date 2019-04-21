@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>NeutronMail</title>
     <link rel="stylesheet" type="text/css" href="index.css">
+    <link href="./assets/icons/fontawersome/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
         <article class="header-flex">
             <nav class="language-nav header-flex-item logo-flex">
-                    <div class="logo logo-flex-item"><img src="/NeutronMail/assets/logo-NeutronMail.png" alt="here is a logo"></div>
+                <div class="logo logo-flex-item"><img src="/NeutronMail/assets/logo-NeutronMail.png" alt="here is a logo"></div>
                 <ul class="logo-flex-item" style="list-style-type:none">
                     <li class="lang-nav-el effect"><a href=#>English</a></li>
                     <li class="lang-nav-el">/</li>
@@ -24,47 +25,54 @@
             </nav>
             <nav class="page-nav header-flex-item">
                 <ul>
-                    <li class="page-el">About</li>    
-                    <li class="page-el">Security</li>     
-                    <li class="page-el">Blog</li>
-                    <li class="page-el">Careers</li>
-                    <li class="page-el">Support</li>
-                    <li class="page-el">Donate</li>                                   
+                    <li class="page-el"><a href="">About</a></li>    
+                    <li class="page-el"><a href="">Security</a></li>     
+                    <li class="page-el"><a href="">Blog</a></li>
+                    <li class="page-el"><a href="">Careers</a></li>
+                    <li class="page-el"><a href="">Support</a></li>
+                    <li class="page-el"><a href="">Donate</a></li>                                   
                 </ul>
-
             </nav>
             <nav class="login-nav header-flex-item">
-                <a>Log in</a>
+                <div class="log-in">
+                    <a href="#"><i class="fas fa-sign-in-alt"></i><span> Log in</span></a>
+                </div>
                 <button class="sign-up">Sign Up</button>
             </nav>
         </article>
-        
-
     </header>
     <main>
-           <article class="main-info">
-                <h1>Secure Email Communication</h1>
-                <h3>Based in <span style="color:red">Somewhere</span></h3>
-                <div class="buttons">
-                    
-                        <button class="create-account">Create account</button>
-                    
-                        <a href="https://www.apple.com/">
-                            <button class="istore">                       
-                                <img src="/NeutronMail/assets/apple.png">
-                            </button>
-                        </a>
-                    
-                        <a href="https://play.google.com/store">
-                            <button class="play-market">
-                                <img src="assets/play_market.png" alt="google play market logo">
-                            </button>
-                        </a>
-                    
-                </div>
+        <div class="social-media">
+            <ul class="sn">
+                <li class="sn-list">
+                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                </li>
+                <li class="sn-list">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </li>
+                <li class="sn-list">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </li>
+            </ul>
+        </div>
+        <article class="main-info">
+            <h1>Secure Email Communication</h1>
+            <h3>Based in <span style="color:red">Somewhere</span></h3>
+            <div class="buttons">
+                <button class="create-account">Create account</button>
+                <a href="https://www.apple.com/">
+                    <button class="istore">                       
+                        <img src="/NeutronMail/assets/apple.png">
+                    </button>
+                </a>
+                <a href="https://play.google.com/store">
+                    <button class="play-market">
+                        <img src="assets/play_market.png" alt="google play market logo">
+                    </button>
+                </a>
+            </div>
         </article>
         <div class="features">
-            
             <div class="features-container area1">
                 <div class="feat-wrap ">
                     <div class="features-image">
@@ -76,14 +84,15 @@
                     </div>
                 </div>
                 <div><p>NeutronMail is incorporated in Somewhere and all our serv&shy;ers are located in Switzerland. 
-                    This means all user data is protected by strict Swiss privacy laws.</p></div>
+                    This means all user data is protected by strict Swiss privacy laws.</p>
+                </div>
             </div>
             <div class=" features-container area2">
                 <div class="feat-wrap ">
                     <div class="features-image">
                         <img class="lock-img" src="/NeutronMail/assets/lock.png" alt="picture of lock">
                     </div>
-                    <div>
+                    <div class="encrypt">
                         <h2>Double Encryption</h2>
                         <h3>Automatic Email Security</h3>
                     </div>
@@ -107,25 +116,15 @@
                     Your privacy comes first.</p>
             </div>
             <div class="left-line">
-
             </div>
-           
             <div class="physical-security">
                 <h2>Physical Security</h2>
                 <p>NeutronMail's infrastructure resides in Europe's <span style="color:red">most secure</span><br> datacenter, 
                 underneath 1000 meters of solid rock.</p>
-            
-    
-        
                 <a href=#security><button class="learn-about">Learn more about our security features</button>
                 </a>
             </div>
-           
-            
     </div>
-
-
-        
     <section class="main-bottom">
         <div class="media">
             <img src="assets/media-logo.png" alt="our media partners' logos">
@@ -154,7 +153,6 @@
                     <p class="author"> — name 3 </p>
                 </div>
             </div>	
-                        
         </div>
         <div class="requirements">
             <h3>Any device, anywhere</h3>
@@ -174,28 +172,15 @@
             <p>Your support helps us to protect privacy world-wide</p>
         </div>
         <div class="support-buttons">
-                <button class="upgrade-button">&#xf0ee;Upgrade to Paid Plan</button>
-                <button class="donate-button">Donate</button>
+                <button class="upgrade-button"><i class="fas fa-cloud-upload-alt"></i> Upgrade to Paid Plan</button>
+                <button class="donate-button"><i class="fas fa-dollar-sign"></i> Donate</button>
             </div>
-        
     </section> 
-        
-
-
-
-
     </main> 
     <footer class="footer">
         <div class="those">Those, who help us secure your privacy</div>
         <nav class="partners">
-            <!-- <img src="./assets/partners img/partner1.png" alt="partner logo nr1">
-            <img src="./assets/partners img/partner2.png" alt="partner logo nr2">
-            <img src="./assets/partners img/partner3.png" alt="partner logo nr3">
-            <img src="./assets/partners img/partner4.png" alt="partner logo nr4">
-            <img src="./assets/partners img/partner5.png" alt="partner logo nr5">
-            <img src="./assets/partners img/partner6.png" alt="partner logo nr6">
-            <img src="./assets/partners img/partner7.png" alt="partner logo nr7"> -->
-                <img src="assets/partner-logo.png" alt="logos of our parners">
+            <img src="assets/partner-logo.png" alt="logos of our parners">
         </nav>
         <article class="bottom">
             <div class="contacts">
@@ -252,20 +237,11 @@
                 <li><a href="https://pages.ebay.com/services/forum/feedback.html" target="_blank">Feedback Forum</a></li>
                 <li>/</li>
                 <li><a href="https://www.reddit.com/" target="_blank">Reddit</a></li>
-
             </ul>
         </div>
-    
         <div class="copyright">
             © 2017 Neutron Technologies AG. All Rights Reserved.
         </div>
     </article>
-
-
-
-
-    
-    
-    
 </body>
 </html>
