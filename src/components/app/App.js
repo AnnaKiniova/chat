@@ -21,8 +21,8 @@ class App extends React.Component {
       console.log('online')
     }
 
-    this.webSocket.onmessage = evt => {
-      const message = JSON.parse(evt.data);
+    this.webSocket.onmessage = e => {
+      const message = JSON.parse(e.data);
       this.addMessage(message);
     }
 
@@ -34,8 +34,18 @@ class App extends React.Component {
     }
   }
 
-  addMessage = message =>
-    this.setState(state => ({ messages: [...message] }))
+  addMessage = message => {
+    this.setState(state => ({ messages: [...message, ...state.messages]
+    }))
+    // console.log(this.state)
+  };
+  submitMessage = messageString => {
+
+    const message = { name: this.state.name, message: messageString }
+    this.ws.send(JSON.stringify(message))
+    this.addMessage(message)
+  }
+
 
   render() {
     return (
@@ -44,9 +54,10 @@ class App extends React.Component {
         {/* <header className="App-header">
         </header> */}
         < Header data={this.state.isOnline}/>
-        < SendMessage />
+        < SendMessage
+        // onChange={e => this.setState({ name: e.target.value })}
+        />
         < RenderMessage data={this.state.messages}/>
-
       </div>
     );
   }

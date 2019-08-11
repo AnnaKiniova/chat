@@ -6,7 +6,7 @@ class RenderMessage extends React.Component {
     return(
       <div>
         {this.props.data.map((item, i) => {
-            console.log(item);
+            console.log(i);
             return (
             <div key={i}>{item.message}
             </div>)

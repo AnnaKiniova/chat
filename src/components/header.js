@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 
 class Header extends React.Component {
 
-    statusStyle = {
-    color: this.props.data ? 'red' : 'green'
-  }
-
   render() {
     return(
       <div className = 'header'>
