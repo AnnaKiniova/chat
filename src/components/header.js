@@ -1,15 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Header = () => {
-  return(
-    <div className = 'header'>
-      <div>
-        Name
+class Header extends React.Component {
+
+    statusStyle = {
+    color: this.props.data ? 'red' : 'green'
+  }
+
+  render() {
+    return(
+      <div className = 'header'>
+        <div>
+          Name
+        </div>
+        <div>Status
+          <span style={this.statusStyle}>
+          { this.props.data ? 'online' : 'offline'}
+          </span>
+        </div>
+        <div>date { (new Date()).toString() }</div>
       </div>
-      <div>Status</div>
-      <div>date</div>
-    </div>
-  )
+    )
+  }
+}
+
+Header.propTypes = {
+  data : PropTypes.bool
 }
 
 export default Header;
