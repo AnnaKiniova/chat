@@ -1,14 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class RenderMessage extends React.Component {
+import MessageItem from './messageItem'
+
+class MessageList extends React.Component {
   render() {
     return(
       <div>
         {this.props.data.map((item, i) => {
             console.log(i);
             return (
-            <div key={i}>{item.message}
+            <div key={i}>
+              < MessageItem data={item} />
+              {console.log(item)}
             </div>)
           }
         )}
@@ -17,8 +21,8 @@ class RenderMessage extends React.Component {
   }
 }
 
-RenderMessage.propTypes = {
+MessageList.propTypes = {
   data:  PropTypes.array
 }
 
-export default RenderMessage;
+export default MessageList;

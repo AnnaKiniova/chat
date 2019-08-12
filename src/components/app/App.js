@@ -1,9 +1,10 @@
 import React from 'react';
 
-import RenderMessage from '../renderMessage'
-import './App.css';
+import MessageList from '../messageList'
 import SendMessage from '../sendMessage'
 import Header from '../header'
+
+import './App.css';
 
 class App extends React.Component {
   state = {
@@ -57,7 +58,7 @@ class App extends React.Component {
         < SendMessage
         // onChange={e => this.setState({ name: e.target.value })}
         />
-        < RenderMessage data={this.state.messages}/>
+        < MessageList data={this.state.messages}/>
       </div>
     );
   }
