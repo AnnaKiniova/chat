@@ -1,0 +1,7 @@
+.message-list-wrap {
+  display: flex;
+  flex-flow: column-reverse;
+  overflow: hidden;
+  /* height: 100vh; */
+
+}

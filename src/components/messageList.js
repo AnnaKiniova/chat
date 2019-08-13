@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import MessageItem from './messageItem'
+import "./messageList.css"
 
 class MessageList extends React.Component {
   render() {
     return(
-      <div>
+      <div className="message-list-wrap">
         {this.props.data.map((item, i) => {
             console.log(i);
             return (
