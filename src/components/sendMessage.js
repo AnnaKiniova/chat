@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import "./sendMessage.css"
+import { send } from 'q';
 
 class SendMessage extends React.Component {
   constructor() {
@@ -39,10 +40,6 @@ class SendMessage extends React.Component {
     });
   };
 
-
-
-
-
   handleChange(event) {
     this.setState({message: event.target.value});
     console.log(event.target.value);
@@ -51,12 +48,15 @@ class SendMessage extends React.Component {
     this.setState({from: event.target.value});
   }
 
-
-
   render() {
-    const {messageInput, userName,message_change, name_change} = this.props;
+    const {messageInput, userName,message_change, name_change, send_button} = this.props;
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      send_button();
+   }
+
   return (
-    <form onSubmit={this.onSubmit} className="input-group mb-3">
+    <form onSubmit={handleSubmit} className="input-group mb-3">
       <input
         type="text"
         placeholder="enter your nickname"
@@ -75,8 +75,13 @@ class SendMessage extends React.Component {
         value={messageInput}
       />
       <div className="input-group-append">
-        <button className="btn btn-info" type="submit" id="button-addon2"
-        >Send</button>
+        <button
+          className="btn btn-info"
+          type="submit"
+          id="button-addon2"
+        >
+          Send
+        </button>
       </div>
     </form>
   )

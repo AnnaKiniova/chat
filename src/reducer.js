@@ -1,6 +1,7 @@
 const Initialstate ={
   messageInput: '',
-  userName: 'test'
+  userName: 'test',
+  // messages: []
 }
 
 const reducer = (state = Initialstate, action) => {
@@ -16,9 +17,11 @@ const reducer = (state = Initialstate, action) => {
         userName: action.payload
       });
 
-    case 'DEC':
-      return state - 1;
-
+    case 'SEND_BUTTON':
+        console.log('---'+ state.messageInput)
+      return Object.assign({}, state, {
+        messageInput: ''
+      });
     default:
       return state;
   }

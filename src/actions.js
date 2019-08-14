@@ -12,9 +12,8 @@ export const name_change = (e) => (
     payload: e.target.value
  });
 
-export const rnd = () => {
+export const send_button = (e) => {
   return {
-    type: 'RND',
-    payload: Math.floor(Math.random()*10)
+    type: 'SEND_BUTTON'
   };
 };
