@@ -55,6 +55,18 @@ class SendMessage extends React.Component {
       send_button();
     };
 
+    // setStorage = () =>{
+    //   if (userName !== null) {
+    //     localStorage.setItem('userName', {userName});
+    //   }
+    // }
+
+    // getFromStorage = () => {
+    //   if (localStorage.getItem('userName') !== null) {
+    //     this.props.setUserName(localStorage.getItem('userName'));
+    //   }
+    // }
+
     return (
       <form onSubmit={handleSubmit} className="input-group mb-3">
         <input
@@ -71,7 +83,9 @@ class SendMessage extends React.Component {
           name="send-message-text"
           className="form-control"
           aria-describedby="button-addon2"
-          onChange={message_change}
+          onChange={
+            message_change
+          }
           value={messageInput}
         />
         <div className="input-group-append">
