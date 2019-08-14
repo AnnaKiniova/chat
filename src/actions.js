@@ -12,8 +12,14 @@ export const name_change = (e) => (
     payload: e.target.value
  });
 
-export const send_button = (e) => {
-  return {
+export const send_button = () => (
+  {
     type: 'SEND_BUTTON'
-  };
-};
+  });
+
+  export const recieve_message = (message) => (
+    {
+      type: 'RECIEVE_MESSAGE',
+      message: message
+
+    });

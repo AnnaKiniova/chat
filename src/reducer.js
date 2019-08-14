@@ -1,7 +1,7 @@
 const Initialstate ={
   messageInput: '',
-  userName: 'test',
-  // messages: []
+  userName: '',
+  messages: []
 }
 
 const reducer = (state = Initialstate, action) => {
@@ -18,10 +18,16 @@ const reducer = (state = Initialstate, action) => {
       });
 
     case 'SEND_BUTTON':
-        console.log('---'+ state.messageInput)
       return Object.assign({}, state, {
         messageInput: ''
       });
+
+    case 'RECIEVE_MESSAGE':
+      return Object.assign({}, state, {
+        messages: [...action.message, ...state.messages]
+      });
+
+
     default:
       return state;
   }

@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/app/App';
 import * as serviceWorker from './serviceWorker';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import reducer from './reducer';
 
-const store = createStore(reducer);
+import store from './store'
+import './websocket'
 
 ReactDOM.render(
   <Provider store={store}>
