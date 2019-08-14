@@ -5,6 +5,8 @@ import * as actions from '../actions';
 import "./sendMessage.css"
 import { send } from 'q';
 
+
+
 class SendMessage extends React.Component {
   constructor() {
     super();

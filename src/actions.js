@@ -1,4 +1,4 @@
-
+import {submitMessage} from './websocket'
 export const message_change = (e) => {
   return {
     type: 'CHNG',
@@ -12,10 +12,13 @@ export const name_change = (e) => (
     payload: e.target.value
  });
 
-export const send_button = () => (
+export const send_button = () => {
+  submitMessage();
+  return(
   {
     type: 'SEND_BUTTON'
   });
+}
 
   export const recieve_message = (message) => (
     {

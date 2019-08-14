@@ -25,3 +25,12 @@ webSocket.onclose = () => {
   //   isOnline: false
   // })
 }
+
+
+export const submitMessage = () => {
+  const message = {
+    from: store.getState().userName,
+    message: store.getState().messageInput}
+  console.log(message);
+  webSocket.send(JSON.stringify(message))
+}
