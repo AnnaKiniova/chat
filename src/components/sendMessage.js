@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 import "./sendMessage.css"
 
 class SendMessage extends React.Component {
@@ -53,14 +54,25 @@ class SendMessage extends React.Component {
 
 
   render() {
+    const {messageInput, userName,message_change, name_change} = this.props;
   return (
     <form onSubmit={this.onSubmit} className="input-group mb-3">
-      <input type="text" placeholder="enter your nickname" name="send-message-name" className="message-name"
-       onChange={this.onNameChange}
+      <input
+        type="text"
+        placeholder="enter your nickname"
+        name="send-message-name"
+        className="message-name"
+        onChange={name_change}
+        value={userName}
       />
-      <input type="text" placeholder="enter your message here" name="send-message-text" className="form-control"  aria-describedby="button-addon2"
-       onChange={this.onLabelChange}
-       value={this.state.label}
+      <input
+        type="text"
+        placeholder="enter your message here"
+        name="send-message-text"
+        className="form-control"
+        aria-describedby="button-addon2"
+        onChange={message_change}
+        value={messageInput}
       />
       <div className="input-group-append">
         <button className="btn btn-info" type="submit" id="button-addon2"
@@ -71,11 +83,16 @@ class SendMessage extends React.Component {
 }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    messageInput: state.messageInput,
+    userName: state.userName,
+  };
+};
+
+export default connect(mapStateToProps, actions)(SendMessage);
+
 SendMessage.propTypes = {
   submitMessage: PropTypes.func
 }
-
-
-export default SendMessage;
-
 
