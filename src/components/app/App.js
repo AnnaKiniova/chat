@@ -9,7 +9,9 @@ import './App.css';
 class App extends React.Component {
   state = {
     isOnline : false,
-    messages : []
+    messages : [],
+    name: 'Anna',
+    message: 'j'
   }
   url = 'ws://st-chat.shas.tel';
   webSocket = new WebSocket(this.url);
@@ -40,11 +42,15 @@ class App extends React.Component {
     }))
     // console.log(this.state)
   };
-  submitMessage = messageString => {
 
-    const message = { name: this.state.name, message: messageString }
-    this.ws.send(JSON.stringify(message))
-    this.addMessage(message)
+  submitMessage = (mess) => {
+    console.log(mess);
+    const message = { from: this.state.name, message: mess}
+
+    this.webSocket.send(JSON.stringify(message))
+    console.log(JSON.stringify(message));
+
+    // this.addMessage(message)
   }
 
 
@@ -55,9 +61,7 @@ class App extends React.Component {
         {/* <header className="App-header">
         </header> */}
         < Header data={this.state.isOnline}/>
-        < SendMessage
-        // onChange={e => this.setState({ name: e.target.value })}
-        />
+        < SendMessage onItemAdded={this.submitMessage} />
         < MessageList data={this.state.messages}/>
       </div>
     );

@@ -9,11 +9,11 @@ class MessageList extends React.Component {
     return(
       <div className="message-list-wrap">
         {this.props.data.map((item, i) => {
-            console.log(i);
+            //console.log(i);
             return (
             <div key={i}>
               < MessageItem data={item} />
-              {console.log(item)}
+
             </div>)
           }
         )}
