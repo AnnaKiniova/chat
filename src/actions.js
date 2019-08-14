@@ -20,9 +20,22 @@ export const send_button = () => {
   });
 }
 
-  export const recieve_message = (message) => (
-    {
-      type: 'RECIEVE_MESSAGE',
-      message: message
+export const recieve_message = (message) => (
+  {
+    type: 'RECIEVE_MESSAGE',
+    message: message
 
-    });
+  });
+
+export const set_websocket = () => (
+  {
+    type: 'SET_WEBSOCKET'
+  });
+
+export const unset_websocket = () => (
+  {
+    type: 'UNSET_WEBSOCKET'
+  });
+
+
+

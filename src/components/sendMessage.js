@@ -60,7 +60,7 @@ class SendMessage extends React.Component {
   return (
     <form onSubmit={handleSubmit} className="input-group mb-3">
       <input
-        type="text"
+        type="textarea"
         placeholder="enter your nickname"
         name="send-message-name"
         className="message-name"

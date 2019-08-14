@@ -27,6 +27,17 @@ const reducer = (state = Initialstate, action) => {
         messages: [...action.message, ...state.messages]
       });
 
+    case 'SET_WEBSOCKET':
+        console.log('online');
+        return Object.assign({}, state, {
+          isOnline: true
+        });
+
+      case 'UNSET_WEBSOCKET':
+        console.log('offline');
+      return Object.assign({}, state, {
+        isOnline: false
+      });
 
     default:
       return state;
