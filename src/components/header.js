@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
 import './header.css'
+
 
 class Header extends React.Component {
 
@@ -11,8 +14,8 @@ class Header extends React.Component {
           Name
         </div>
         <div className = 'header-item'>Status
-          <span style={this.statusStyle}>
-          { this.props.data ? 'online' : 'offline'}
+          <span className={ this.props.isOnline ? 'online' : 'offline'}>
+          { this.props.isOnline ? 'online' : 'offline'}
           </span>
         </div>
         <div className = 'header-item'>date { (new Date()).toString() }</div>
@@ -21,8 +24,14 @@ class Header extends React.Component {
   }
 }
 
-Header.propTypes = {
-  data : PropTypes.bool
-}
+const mapStateToProps = (state) => {
+  return {
+    isOnline: state.isOnline,
+  };
+};
 
-export default Header;
+export default connect(mapStateToProps)(Header);
+
+Header.propTypes = {
+  isOnline : PropTypes.bool
+}

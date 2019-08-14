@@ -18,7 +18,6 @@ webSocket.onclose = () => {
   store.dispatch(actions.unset_websocket())
 }
 
-
 export const submitMessage = () => {
   const message = {
     from: store.getState().userName,

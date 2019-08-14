@@ -1,7 +1,8 @@
 const Initialstate ={
   messageInput: '',
   userName: '',
-  messages: []
+  messages: [],
+  isOnline: false
 }
 
 const reducer = (state = Initialstate, action) => {
