@@ -2,7 +2,8 @@ const Initialstate = {
   messageInput: "",
   userName: "",
   messages: [],
-  isOnline: false
+  isOnline: false,
+  undeliveredMessages: []
 };
 
 const reducer = (state = Initialstate, action) => {
@@ -20,6 +21,16 @@ const reducer = (state = Initialstate, action) => {
     case "SEND_BUTTON":
       return Object.assign({}, state, {
         messageInput: ""
+      });
+
+    case "SEND_OFFLINE":
+      return Object.assign({}, state, {
+        undeliveredMessages: [action.payload, ...state.undeliveredMessages]
+      });
+
+    case "DELIVER_AFTER_OFFLINE":
+      return Object.assign({}, state, {
+        undeliveredMessages: []
       });
 
     case "RECIEVE_MESSAGE":

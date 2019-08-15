@@ -23,6 +23,18 @@ export const send_button = () => {
   };
 };
 
+export const send_offline = (message) => {
+  return {
+    type: "SEND_OFFLINE",
+    payload: message
+  };
+};
+
+export const deliver_after_offline = message => ({
+  type: "DELIVER_AFTER_OFFLINE",
+  message: message
+});
+
 export const recieve_message = message => ({
   type: "RECIEVE_MESSAGE",
   message: message

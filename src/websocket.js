@@ -7,7 +7,17 @@ const establishConnection = () => {
   webSocket = new WebSocket(url);
 
   webSocket.onopen = () => {
+
+    const {undeliveredMessages} = store.getState();
+    if (undeliveredMessages. length > 0) {
+      //console.log(undeliveredMessages);
+      undeliveredMessages.map((item) =>{
+        webSocket.send(JSON.stringify(item));
+        //console.log(JSON.stringify(item))
+      })
+    }
     store.dispatch(actions.set_websocket());
+    store.dispatch(actions.deliver_after_offline());
   };
 
   webSocket.onmessage = e => {
@@ -23,17 +33,23 @@ const establishConnection = () => {
   };
 
   webSocket.onerror = () => {
-    webSocket.close();
+   webSocket.close();
   };
 }
 
 establishConnection();
 
 export const submitMessage = () => {
+  const {userName,messageInput,isOnline} = store.getState();
+
   const message = {
-    from: store.getState().userName,
-    message: store.getState().messageInput
+    from: userName,
+    message: messageInput
   };
-  console.log(message);
-  webSocket.send(JSON.stringify(message));
+  if (isOnline) {
+    webSocket.send(JSON.stringify(message));
+  } else {
+    store.dispatch(actions.send_offline(message));
+  }
+
 };
