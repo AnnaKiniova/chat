@@ -5,6 +5,7 @@ import SendMessage from "../sendMessage";
 import Header from "../header";
 
 import "./App.css";
+import {notifyMe} from '../notification'
 
 class App extends React.Component {
   state = {
@@ -14,7 +15,9 @@ class App extends React.Component {
     // message: ''
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    notifyMe('zzz');
+  }
 
   addMessage = message => {
     this.setState(state => ({ messages: [...message, ...state.messages] }));
