@@ -57,8 +57,6 @@ class SendMessage extends React.Component {
       </form>
     );
   }
-
-
 }
 
 const mapStateToProps = state => {

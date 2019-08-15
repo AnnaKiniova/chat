@@ -5,23 +5,16 @@ import SendMessage from "../sendMessage";
 import Header from "../header";
 
 import "./App.css";
-import {notifyMe} from '../notification'
+import "../visibility";
 
 class App extends React.Component {
   state = {
     isOnline: false,
     messages: []
-    // name: '',
-    // message: ''
   };
-
-  componentDidMount() {
-    notifyMe('zzz');
-  }
 
   addMessage = message => {
     this.setState(state => ({ messages: [...message, ...state.messages] }));
-    // console.log(this.state)
   };
 
   submitMessage = mess => {
@@ -29,7 +22,6 @@ class App extends React.Component {
     const message = { from: this.state.name, message: mess };
 
     this.webSocket.send(JSON.stringify(message));
-    // console.log(JSON.stringify(message));
   };
 
   render() {

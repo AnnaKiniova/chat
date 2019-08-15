@@ -47,3 +47,11 @@ export const set_websocket = () => ({
 export const unset_websocket = () => ({
   type: "UNSET_WEBSOCKET"
 });
+
+export const hidden_window = () => ({
+  type: "HIDDEN_WINDOW"
+});
+
+export const visible_window = () => ({
+  type: "VISIBLE_WINDOW"
+});

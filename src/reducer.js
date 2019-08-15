@@ -3,7 +3,8 @@ const Initialstate = {
   userName: "",
   messages: [],
   isOnline: false,
-  undeliveredMessages: []
+  undeliveredMessages: [],
+  isHidden: false
 };
 
 const reducer = (state = Initialstate, action) => {
@@ -51,8 +52,17 @@ const reducer = (state = Initialstate, action) => {
         messages: []
       });
 
+    case "HIDDEN_WINDOW":
+      console.log("hidden");
+      return Object.assign({}, state, {
+        isHidden: true
+      });
 
-
+    case "VISIBLE_WINDOW":
+      console.log("visible");
+      return Object.assign({}, state, {
+        isHidden: false
+      });
 
     default:
       return state;
