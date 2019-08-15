@@ -7,8 +7,13 @@ export const message_change = e => {
 };
 
 export const name_change = e => ({
-  type: "USER_CHANGE",
+  type: "USER_NAME_CHANGE",
   payload: e.target.value
+});
+
+export const set_username = (name) => ({
+  type: "USER_NAME_CHANGE",
+  payload: name
 });
 
 export const send_button = () => {

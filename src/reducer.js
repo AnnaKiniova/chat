@@ -12,7 +12,7 @@ const reducer = (state = Initialstate, action) => {
         messageInput: action.payload
       });
 
-    case "USER_CHANGE":
+    case "USER_NAME_CHANGE":
       return Object.assign({}, state, {
         userName: action.payload
       });

@@ -3,69 +3,30 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 import "./sendMessage.css";
-import { send } from "q";
 
 class SendMessage extends React.Component {
   constructor() {
-    super();
-    this.handleChange = this.handleChange.bind(this);
+    super()
   }
 
-  state = {
-    label: ""
-  };
-  onLabelChange = e => {
-    this.setState({
-      label: e.target.value
-    });
-  };
-
-  onLabelChange = e => {
-    this.setState({
-      label: e.target.value
-    });
-  };
-
-  onSubmit = e => {
-    e.preventDefault();
-    this.props.onItemAdded(this.state.label);
-    this.setState({
-      label: ""
-    });
-  };
-
-  handleChange(event) {
-    this.setState({ message: event.target.value });
-    console.log(event.target.value);
+  componentDidMount() {
+    if (localStorage.getItem('userName') !== null) {
+      this.props.set_username(localStorage.getItem('userName'));
+    }
   }
-  onNameChange(event) {
-    this.setState({ from: event.target.value });
+
+  componentDidUpdate() {
+    if (this.props.userName !== '') {
+      localStorage.setItem('userName', this.props.userName);
+    }
   }
 
   render() {
-    const {
-      messageInput,
-      userName,
-      message_change,
-      name_change,
-      send_button
-    } = this.props;
+    const {send_button,userName,name_change,message_change,messageInput} = this.props;
     const handleSubmit = e => {
       e.preventDefault();
       send_button();
     };
-
-    // setStorage = () =>{
-    //   if (userName !== null) {
-    //     localStorage.setItem('userName', {userName});
-    //   }
-    // }
-
-    // getFromStorage = () => {
-    //   if (localStorage.getItem('userName') !== null) {
-    //     this.props.setUserName(localStorage.getItem('userName'));
-    //   }
-    // }
 
     return (
       <form onSubmit={handleSubmit} className="input-group mb-3">
@@ -96,6 +57,8 @@ class SendMessage extends React.Component {
       </form>
     );
   }
+
+
 }
 
 const mapStateToProps = state => {
@@ -111,5 +74,11 @@ export default connect(
 )(SendMessage);
 
 SendMessage.propTypes = {
-  submitMessage: PropTypes.func
+  submitMessage: PropTypes.func,
+  send_button: PropTypes.func,
+  userName: PropTypes.string,
+  name_change: PropTypes.func,
+  message_change: PropTypes.func,
+  messageInput: PropTypes.string,
+  set_username: PropTypes.func
 };
