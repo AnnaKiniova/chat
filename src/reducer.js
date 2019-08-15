@@ -36,8 +36,12 @@ const reducer = (state = Initialstate, action) => {
     case "UNSET_WEBSOCKET":
       console.log("offline");
       return Object.assign({}, state, {
-        isOnline: false
+        isOnline: false,
+        messages: []
       });
+
+
+
 
     default:
       return state;
