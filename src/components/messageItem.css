@@ -1,23 +1,32 @@
 .message-item-card {
-  display: flex;
-  flex-flow: column;
-  align-items: space-between;
   text-align: left;
-
-  width: 70%;
-  /* background-color: rgb(160, 193, 253); */
-  /* border:  5px solid rgb(97, 153, 153); */
-
   margin-left: 30px;
-
+  background-color: rgb(150, 209, 174);
   color: rgb(3, 49, 49);
+  max-width: 85%;
+
 }
 
 .message-item-header {
   display: flex;
-  flex-flow: row;
+  flex-flow: column;
   justify-content: space-between;
-
   font-weight: bold;
-  /* border:  2px solid rgb(97, 153, 153); */
+}
+
+.message-item-message {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-all;
+
+}
+
+.message-item-from span {
+  font-weight: bold
+}
+
+.self-message div {
+  background: rgb(52, 173, 182);
+
 }

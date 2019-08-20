@@ -11,7 +11,7 @@ export const name_change = e => ({
   payload: e.target.value
 });
 
-export const set_username = (name) => ({
+export const set_username = name => ({
   type: "USER_NAME_CHANGE",
   payload: name
 });
@@ -23,7 +23,7 @@ export const send_button = () => {
   };
 };
 
-export const send_offline = (message) => {
+export const send_offline = message => {
   return {
     type: "SEND_OFFLINE",
     payload: message

@@ -11,8 +11,12 @@ class MessageList extends React.Component {
     return (
       <div className="message-list-wrap">
         {this.props.messages.map(item => {
+          let classes = "message-item";
+          if (item.from === this.props.userName) {
+            classes += " self-message";
+          }
           return (
-            <div key={item.id}>
+            <div key={item.id} className={classes}>
               <MessageItem data={item} />
             </div>
           );
@@ -24,7 +28,8 @@ class MessageList extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    messages: state.messages
+    messages: state.messages,
+    userName: state.userName
   };
 };
 
@@ -35,5 +40,6 @@ export default connect(
 
 MessageList.propTypes = {
   data: PropTypes.array,
-  messages: PropTypes.array
+  messages: PropTypes.array,
+  userName: PropTypes.string
 };

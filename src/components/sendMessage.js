@@ -6,23 +6,29 @@ import "./sendMessage.css";
 
 class SendMessage extends React.Component {
   constructor() {
-    super()
+    super();
   }
 
   componentDidMount() {
-    if (localStorage.getItem('userName') !== null) {
-      this.props.set_username(localStorage.getItem('userName'));
+    if (localStorage.getItem("userName") !== null) {
+      this.props.set_username(localStorage.getItem("userName"));
     }
   }
 
   componentDidUpdate() {
-    if (this.props.userName !== '') {
-      localStorage.setItem('userName', this.props.userName);
+    if (this.props.userName !== "") {
+      localStorage.setItem("userName", this.props.userName);
     }
   }
 
   render() {
-    const {send_button,userName,name_change,message_change,messageInput} = this.props;
+    const {
+      send_button,
+      userName,
+      name_change,
+      message_change,
+      messageInput
+    } = this.props;
     const handleSubmit = e => {
       e.preventDefault();
       send_button();
@@ -44,9 +50,7 @@ class SendMessage extends React.Component {
           name="send-message-text"
           className="form-control"
           aria-describedby="button-addon2"
-          onChange={
-            message_change
-          }
+          onChange={message_change}
           value={messageInput}
         />
         <div className="input-group-append">
