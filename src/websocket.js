@@ -1,27 +1,58 @@
 import * as actions from "./actions";
 import store from "./store";
+import { notifyMe } from "./components/notification";
+let webSocket = null;
 
-const url = "ws://st-chat.shas.tel";
-const webSocket = new WebSocket(url);
+const establishConnection = () => {
+  const url = "ws://st-chat.shas.tel";
+  webSocket = new WebSocket(url);
 
-webSocket.onopen = () => {
-  store.dispatch(actions.set_websocket());
+  webSocket.onopen = () => {
+    const { undeliveredMessages } = store.getState();
+    if (undeliveredMessages.length > 0) {
+      undeliveredMessages.map(item => {
+        webSocket.send(JSON.stringify(item));
+      });
+    }
+    store.dispatch(actions.set_websocket());
+    store.dispatch(actions.deliver_after_offline());
+  };
+
+  webSocket.onmessage = e => {
+    const message = JSON.parse(e.data);
+    store.dispatch(actions.recieve_message(message));
+    const { isHidden } = store.getState();
+    console.log(message);
+
+    if (isHidden) {
+      notifyMe(message[0].message);
+    }
+  };
+
+  webSocket.onclose = () => {
+    store.dispatch(actions.unset_websocket());
+    setTimeout(() => {
+      establishConnection();
+    }, 1000);
+  };
+
+  webSocket.onerror = () => {
+    webSocket.close();
+  };
 };
 
-webSocket.onmessage = e => {
-  const message = JSON.parse(e.data);
-  store.dispatch(actions.recieve_message(message));
-};
-
-webSocket.onclose = () => {
-  store.dispatch(actions.unset_websocket());
-};
+establishConnection();
 
 export const submitMessage = () => {
+  const { userName, messageInput, isOnline } = store.getState();
+
   const message = {
-    from: store.getState().userName,
-    message: store.getState().messageInput
+    from: userName,
+    message: messageInput
   };
-  console.log(message);
-  webSocket.send(JSON.stringify(message));
+  if (isOnline) {
+    webSocket.send(JSON.stringify(message));
+  } else {
+    store.dispatch(actions.send_offline(message));
+  }
 };

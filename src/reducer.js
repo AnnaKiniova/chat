@@ -2,7 +2,9 @@ const Initialstate = {
   messageInput: "",
   userName: "",
   messages: [],
-  isOnline: false
+  isOnline: false,
+  undeliveredMessages: [],
+  isHidden: false
 };
 
 const reducer = (state = Initialstate, action) => {
@@ -12,7 +14,7 @@ const reducer = (state = Initialstate, action) => {
         messageInput: action.payload
       });
 
-    case "USER_CHANGE":
+    case "USER_NAME_CHANGE":
       return Object.assign({}, state, {
         userName: action.payload
       });
@@ -20,6 +22,16 @@ const reducer = (state = Initialstate, action) => {
     case "SEND_BUTTON":
       return Object.assign({}, state, {
         messageInput: ""
+      });
+
+    case "SEND_OFFLINE":
+      return Object.assign({}, state, {
+        undeliveredMessages: [action.payload, ...state.undeliveredMessages]
+      });
+
+    case "DELIVER_AFTER_OFFLINE":
+      return Object.assign({}, state, {
+        undeliveredMessages: []
       });
 
     case "RECIEVE_MESSAGE":
@@ -36,7 +48,20 @@ const reducer = (state = Initialstate, action) => {
     case "UNSET_WEBSOCKET":
       console.log("offline");
       return Object.assign({}, state, {
-        isOnline: false
+        isOnline: false,
+        messages: []
+      });
+
+    case "HIDDEN_WINDOW":
+      console.log("hidden");
+      return Object.assign({}, state, {
+        isHidden: true
+      });
+
+    case "VISIBLE_WINDOW":
+      console.log("visible");
+      return Object.assign({}, state, {
+        isHidden: false
       });
 
     default:

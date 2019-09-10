@@ -6,7 +6,7 @@
   color: #fff;
   font-weight: bold;
   font-family: Georgia, sans-serif;
-  padding-top:10px;
+  padding-top: 10px;
 
 }
 
@@ -18,7 +18,10 @@
 
 .online {
   color: green;
+  padding-left: 30px;
 }
+
 .offline {
   color: red;
+  padding-left: 30px;
 }
